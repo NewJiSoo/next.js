@@ -11,7 +11,7 @@ related:
 
 {/* The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. */}
 
-[**`next/font`**](/docs/01-app/03-api-reference/02-components/font.mdx) will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
+[**`next/font`**](/docs/01-app/03-api-reference/02-components/font) will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
 
 > **🎥 Watch:** Learn more about using `next/font` → [YouTube (6 minutes)](https://www.youtube.com/watch?v=L8_98i_bMMA).
 
@@ -113,7 +113,7 @@ export default function RootLayout({ children }) {
 
 <PagesOnly>
 
-To use the font in all your pages, add it to [`_app.js` file](/docs/pages/building-your-application/routing/custom-app) under `/pages` as shown below:
+To use the font in all your pages, add it to [`_app.js` file](/docs/02-pages/02-building-your-application/01-routing/05-custom-app) under `/pages` as shown below:
 
 ```jsx filename="pages/_app.js"
 import { Inter } from 'next/font/google'
@@ -211,7 +211,7 @@ export default function Home() {
 
 ### Specifying a subset
 
-Google Fonts are automatically [subset](https://fonts.google.com/knowledge/glossary/subsetting). This reduces the size of the font file and improves performance. You'll need to define which of these subsets you want to preload. Failing to specify any subsets while [`preload`](/docs/app/api-reference/components/font#preload) is `true` will result in a warning.
+Google Fonts are automatically [subset](https://fonts.google.com/knowledge/glossary/subsetting). This reduces the size of the font file and improves performance. You'll need to define which of these subsets you want to preload. Failing to specify any subsets while [`preload`](/docs/01-app/03-api-reference/02-components/font#preload) is `true` will result in a warning.
 
 This can be done by adding it to the function call:
 
@@ -235,7 +235,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 </PagesOnly>
 
-View the [Font API Reference](/docs/app/api-reference/components/font) for more information.
+View the [Font API Reference](/docs/01-app/03-api-reference/02-components/font) for more information.
 
 ### Using Multiple Fonts
 
@@ -329,7 +329,7 @@ export default function Page() {
 
 In the example above, `Inter` will be applied globally, and `Roboto Mono` can be imported and applied as needed.
 
-Alternatively, you can create a [CSS variable](/docs/app/api-reference/components/font#variable) and use it with your preferred CSS solution:
+Alternatively, you can create a [CSS variable](/docs/01-app/03-api-reference/02-components/font#variable) and use it with your preferred CSS solution:
 
 <AppOnly>
 
@@ -504,11 +504,11 @@ const roboto = localFont({
 })
 ```
 
-View the [Font API Reference](/docs/app/api-reference/components/font) for more information.
+View the [Font API Reference](/docs/01-app/03-api-reference/02-components/font) for more information.
 
 ## With Tailwind CSS
 
-`next/font` can be used with [Tailwind CSS](https://tailwindcss.com/) through a [CSS variable](/docs/app/api-reference/components/font#css-variables).
+`next/font` can be used with [Tailwind CSS](https://tailwindcss.com/) through a [CSS variable](/docs/01-app/03-api-reference/02-components/font#css-variables).
 
 In the example below, we use the font `Inter` from `next/font/google` (you can use any font from Google or Local Fonts). Load your font with the `variable` option to define your CSS variable name and assign it to `inter`. Then, use `inter.variable` to add the CSS variable to your HTML document.
 
@@ -589,7 +589,7 @@ export default function MyApp({ Component, pageProps }) {
 
 </PagesOnly>
 
-Finally, add the CSS variable to your [Tailwind CSS config](/docs/app/building-your-application/styling/tailwind-css#configuring-tailwind):
+Finally, add the CSS variable to your [Tailwind CSS config](/docs/01-app/02-building-your-application/05-styling/02-tailwind-css#configuring-tailwind):
 
 ```js filename="tailwind.config.js"
 /** @type {import('tailwindcss').Config} */
@@ -618,9 +618,9 @@ You can now use the `font-sans` and `font-mono` utility classes to apply the fon
 <AppOnly>
 When a font function is called on a page of your site, it is not globally available and preloaded on all routes. Rather, the font is only preloaded on the related routes based on the type of file where it is used:
 
-- If it's a [unique page](/docs/app/building-your-application/routing/pages), it is preloaded on the unique route for that page.
-- If it's a [layout](/docs/app/building-your-application/routing/layouts-and-templates#layouts), it is preloaded on all the routes wrapped by the layout.
-- If it's the [root layout](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required), it is preloaded on all routes.
+- If it's a [unique page](/docs/01-app/02-building-your-application/01-routing/pages), it is preloaded on the unique route for that page.
+- If it's a [layout](/docs/01-app/02-building-your-application/01-routing/03-layouts-and-templates#layouts), it is preloaded on all the routes wrapped by the layout.
+- If it's the [root layout](/docs/01-app/02-building-your-application/01-routing/03-layouts-and-templates#root-layout-required), it is preloaded on all routes.
 
 </AppOnly>
 
@@ -628,8 +628,8 @@ When a font function is called on a page of your site, it is not globally availa
 
 When a font function is called on a page of your site, it is not globally available and preloaded on all routes. Rather, the font is only preloaded on the related route/s based on the type of file where it is used:
 
-- if it's a [unique page](/docs/pages/building-your-application/routing/pages-and-layouts), it is preloaded on the unique route for that page
-- if it's in the [custom App](/docs/pages/building-your-application/routing/custom-app), it is preloaded on all the routes of the site under `/pages`
+- if it's a [unique page](/docs/02-pages/02-building-your-application/01-routing/01-pages-and-layouts), it is preloaded on the unique route for that page
+- if it's in the [custom App](/docs/02-pages/02-building-your-application/01-routing/05-custom-app), it is preloaded on all the routes of the site under `/pages`
 
 </PagesOnly>
 
